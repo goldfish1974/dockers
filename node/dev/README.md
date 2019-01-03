@@ -2,32 +2,3 @@
 
 This image is for building your dependencies. You should use
 iron/node to run them (smaller image).
-
-## Building
-
-**NOTE: Temporarily using [mhart/alpine-node](https://github.com/mhart/alpine-node) for v5 images until Alpine package updated.**
-
-mhart version:
-```sh
-docker build -t iron/node:dev -f Dockerfile.mhart .
-```
-
-Normal version:
-
-```sh
-docker build -t iron/node:dev .
-```
-
-Tag the ruby version, check it with `docker run --rm iron/node:dev node -v`:
-
-```sh
-docker tag -f iron/node:dev iron/node:5-dev
-docker tag -f iron/node:dev iron/node:5.Y-dev
-docker tag -f iron/node:dev iron/node:5.Y.Z-dev
-```
-
-Push:
-
-```sh
-docker push iron/node
-```

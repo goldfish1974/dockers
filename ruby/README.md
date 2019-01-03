@@ -10,12 +10,6 @@ Image on Docker Hub: https://hub.docker.com/r/iron/ruby
 docker run --rm -v "$PWD":/worker -w /worker iron/ruby:dev bundle install --standalone --clean
 ```
 
-If you're using Nokogiri, use this one:
-
-```sh
-docker run --rm -v "$PWD":/worker -w /worker iron/ruby:dev sh -c 'bundle config --local build.nokogiri --use-system-libraries && bundle install --standalone --clean'
-```
-
 Then require the vendored gems. Notice in `hello.rb`, we add the following so it uses the vendored gems:
 
 ```ruby
@@ -55,25 +49,4 @@ Push it to Docker Hub:
 
 ```sh
 docker push username/imagename
-```
-
-
-## Building this image
-
-```sh
-docker build -t iron/ruby:latest .
-```
-
-Tag the ruby version, check it with `docker run --rm iron/ruby ruby -v`:
-
-```sh
-docker tag iron/ruby:latest iron/ruby:X
-docker tag iron/ruby:latest iron/ruby:X.Y
-docker tag iron/ruby:latest iron/ruby:X.Y.Z
-```
-
-Push:
-
-```sh
-docker push iron/ruby
 ```

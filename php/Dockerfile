@@ -1,8 +1,3 @@
 FROM iron/base
 
-RUN apk update && apk upgrade
-
-RUN apk add php php-json php-curl
-
-# Clean APK cache
-RUN rm -rf /var/cache/apk/*
+RUN apk add --no-cache php7 php7-curl php7-iconv php7-json php7-openssl php7-phar
